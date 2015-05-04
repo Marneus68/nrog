@@ -1,0 +1,4 @@
+-Iinclude/
+-I./include/
+-I../include/
+-I/usr/include/
