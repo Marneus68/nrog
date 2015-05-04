@@ -5,7 +5,7 @@ namespace rog {
 
     }
 
-    ControlStateObject::ControlStateObject(const ControlStateObject& cso) {
+    ControlStateObject::ControlStateObject(ControlStateObject& cso) {
         
     }
 
@@ -13,7 +13,7 @@ namespace rog {
 
     }
 
-    ControlStateObject & ControlStateObject::operator=(const ControlStateObject& cso) {
-
+    ControlStateObject & ControlStateObject::operator=(ControlStateObject& cso) {
+        return cso; 
     }
 } /* rog */

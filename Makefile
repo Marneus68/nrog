@@ -9,7 +9,13 @@ OFLAGS  :=
 # Link Options
 LDFLAGS := 
 # Link Libraries
-LDLIBS 	:= -lncursesw
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+    LDLIBS 	:= -lncursesw
+endif
+ifeq ($(UNAME_S),Darwin)
+    LDLIBS 	:= -lncurses
+endif
 
 # Source directory
 SRCDIR	:= src

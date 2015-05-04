@@ -37,7 +37,7 @@ namespace rog {
 
         NcursesHelpers::writeCenteredString("2015", window_y-1, window_x/2);
 
-        if (ch = getch()) {
+        if ((ch = getch())) {
             for(auto it = menuItemActions.begin(); it != menuItemActions.end(); it++) {
                 if (ch == it->first) {
                     it->second();

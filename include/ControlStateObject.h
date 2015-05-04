@@ -5,10 +5,10 @@ namespace rog {
     class ControlStateObject {
         public:
             ControlStateObject (void);
-            ControlStateObject (const ControlStateObject& cso);
+            ControlStateObject (ControlStateObject& cso);
             virtual ~ControlStateObject (void);
     
-            ControlStateObject &operator=(const ControlStateObject& cso);
+            ControlStateObject &operator=(ControlStateObject& cso);
     };
 } /* rog */
 

@@ -32,7 +32,7 @@ namespace rog {
 
     void NewGameState::loop(void) {
         int ch;
-        if (ch = getch()) {
+        if ((ch = getch())) {
             switch(ch) {
                 case 'q':
                     wclear(stdscr);

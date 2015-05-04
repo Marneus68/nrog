@@ -25,7 +25,7 @@ namespace rog {
 
     void QuitState::loop(void) {
         int ch;
-        if (ch = getch()) {
+        if ((ch = getch())) {
             switch(ch) {
                 case 'y':
                 case 'Y':

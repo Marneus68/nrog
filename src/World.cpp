@@ -14,7 +14,7 @@ namespace rog {
     }
 
     World & World::operator=(World& w) {
-
+        return w;
     }
 
     void World::deleteWorld(void) {
