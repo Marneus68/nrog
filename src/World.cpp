@@ -1,7 +1,7 @@
 #include "World.h"
 
 namespace rog {
-    World::World(void) {
+    World::World(std::string _path) {
 
     }
 
