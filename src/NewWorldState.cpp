@@ -61,6 +61,11 @@ namespace rog {
         mvwprintw(navWindow, 1, 2, navString.c_str());
         NcursesHelpers::decorateWindow(navWindow, DecorationStyle::DOUBLE_LINE);
         NcursesHelpers::decorateWindow(mainWindow, DecorationStyle::LINE);
+
+        NcursesHelpers::writeCenteredString(mainWindow, "Creating a new world", 0, window_x/2);
+        wrefresh(mainWindow);
+        wrefresh(navWindow);
+        refresh();
     }
 } /* rog */
 
