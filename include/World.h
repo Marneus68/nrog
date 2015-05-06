@@ -5,7 +5,7 @@
 
 namespace rog {
     enum class WorldSize {
-
+        SMALL,
         MEDIUM,
         BIG
     };

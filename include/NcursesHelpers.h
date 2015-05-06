@@ -21,7 +21,7 @@ namespace rog {
 
     class NcursesHelpers {
         public:
-            static void writeCenteredString(std::string str, int y, int x);
+            static void writeCenteredString(WINDOW *window, std::string str, int y, int x);
             static void decorateWindow(WINDOW *window);
             static void decorateWindow(WINDOW *window, DecorationStyle style);
     };

@@ -4,8 +4,8 @@
 #include <vector>
 
 namespace rog {
-    void NcursesHelpers::writeCenteredString(std::string str, int y, int x) {
-        mvwprintw(stdscr, y, x-(str.size()/2), str.c_str());
+    void NcursesHelpers::writeCenteredString(WINDOW *window, std::string str, int y, int x) {
+        mvwprintw(window, y, x-(str.size()/2), str.c_str());
     }
 
     void NcursesHelpers::decorateWindow(WINDOW *window) {

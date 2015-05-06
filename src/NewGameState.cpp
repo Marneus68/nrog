@@ -1,6 +1,7 @@
 #include "NewGameState.h"
 
 #include "MenuState.h"
+#include "NewWorldState.h"
 
 #include "NcursesHelpers.h"
 
@@ -39,6 +40,8 @@ namespace rog {
                     machine->changeState(new MenuState(machine));
                     break;
                 case 'n':
+                    //wclear(stdscr);
+                    machine->changeState(new NewWorldState(machine));
                     break;
                 case 'x':
                     break;
@@ -46,3 +49,4 @@ namespace rog {
         }
     }
 } /* rog */
+

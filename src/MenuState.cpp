@@ -31,11 +31,11 @@ namespace rog {
         //wclear(stdscr);
 
         for(auto it = menuItems.begin(); it != menuItems.end(); it++) {
-            NcursesHelpers::writeCenteredString(*it, window_y/2+i, window_x/2); 
+            NcursesHelpers::writeCenteredString(stdscr, *it, window_y/2+i, window_x/2); 
             i++;
         }
 
-        NcursesHelpers::writeCenteredString("2015", window_y-1, window_x/2);
+        NcursesHelpers::writeCenteredString(stdscr, "2015", window_y-1, window_x/2);
 
         if ((ch = getch())) {
             for(auto it = menuItemActions.begin(); it != menuItemActions.end(); it++) {
