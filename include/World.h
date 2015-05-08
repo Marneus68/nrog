@@ -9,6 +9,10 @@ namespace rog {
         MEDIUM,
         BIG
     };
+    enum class WorldGeometry {
+        INSULAR,
+        CONTINENTAL
+    };
     enum class WorldHistoryLength {
         SHORT,
         MEDIUM,

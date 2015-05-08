@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "TextSourcer.h"
 #include "NcursesHelpers.h"
 #include "NewGameState.h"
 
@@ -63,6 +64,15 @@ namespace rog {
         NcursesHelpers::decorateWindow(mainWindow, DecorationStyle::LINE);
 
         NcursesHelpers::writeCenteredString(mainWindow, "Creating a new world", 0, window_x/2);
+        
+        
+        mvwprintw(mainWindow, 2, 2, TextSourcer::getHomeDir().c_str());
+        mvwprintw(mainWindow, 3, 2, TextSourcer::getLocalFilesDir().c_str());
+        mvwprintw(mainWindow, 4, 2, TextSourcer::getStaticDescription("WorldSize").c_str());
+        mvwprintw(mainWindow, 5, 2, TextSourcer::getStaticDescription("WorldHistoryLength").c_str());
+        mvwprintw(mainWindow, 6, 2, TextSourcer::getStaticDescription("lkjfhsdlkjfh").c_str());
+
+
         wrefresh(mainWindow);
         wrefresh(navWindow);
         refresh();

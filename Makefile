@@ -68,6 +68,11 @@ mrproper: clean
 
 install:
 	@echo "$(blue)Installing...$(reset)"
+	@echo "$(blue)Copying resources...$(reset)"
+	# Resources path : /usr/local/games/nrog
+	@echo "$(blue)Copying executable...$(reset)"
+	# Executable path : /usr/local/bin
+	@echo "$(green)Done. Enjoy :)$(reset)"
 
 doc:
 	@echo "$(blue)Building documentation...$(reset)"
