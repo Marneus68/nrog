@@ -23,7 +23,7 @@ namespace rog {
 
     std::string TextSourcer::sdescnf = SDESC_NF;
 
-    std::map<std::string, std::string> TextSourcer::sdescs = {};
+    std::map<std::string, std::string> TextSourcer::sdescs;
 
     int ftw_sdesc_callback(const char *fpath, const struct stat *sb, int typeflag) {
         if (FTW_F == typeflag) {
@@ -44,6 +44,7 @@ namespace rog {
                 }
             }
         }
+        return 0;
     }
 
     void TextSourcer::feedStaticDescriptions(void) {
