@@ -4,12 +4,12 @@ namespace rog {
     Race::Race (void) :
         name("DEFAULT RACE"),
         description("DEFAULT RACE"),
-        _str(50),
-        _int(50),
-        _dex(50),
-        _end(50),
-        _cha(50),
-        _per(50) {}
+        _str(0),
+        _int(0),
+        _dex(0),
+        _end(0),
+        _cha(0),
+        _per(0) {}
 
     Race::Race (std::string & _name, std::string & _description, int a, int b, int c, int d, int e, int f) :
         name(_name),
@@ -56,4 +56,14 @@ namespace rog {
     int Race::getCHA(void) { return _cha; }
     int Race::getPER(void) { return _per; }
 
+    void Race::setName(std::string & _name) { name = _name; }
+    void Race::setDescription(std::string & _desc) { description = _desc; }
+
+    void Race::setSTR(int val) { _str = val; }
+    void Race::setINT(int val) { _int = val; }
+    void Race::setDEX(int val) { _dex = val; }
+    void Race::setEND(int val) { _end = val; }
+    void Race::setCHA(int val) { _cha = val; }
+    void Race::setPER(int val) { _per = val; }
 } /* rog */
+

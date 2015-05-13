@@ -32,6 +32,16 @@ namespace rog {
             int getEND(void);
             int getCHA(void);
             int getPER(void);
+            
+            void setName(std::string & _name);
+            void setDescription(std::string & _desc);
+
+            void setSTR(int val);
+            void setINT(int val);
+            void setDEX(int val);
+            void setEND(int val);
+            void setCHA(int val);
+            void setPER(int val);
     };
 } /* rog */
 

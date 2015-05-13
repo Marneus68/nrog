@@ -3,6 +3,11 @@
 
 #include <map>
 #include <string>
+#include <sstream>
+#include <fstream>
+#include <functional>
+
+#include "Race.h"
 
 /* sdesc = static descriptions */
 
@@ -12,7 +17,9 @@ namespace rog {
             static std::string sdescnf;
 
         public:
+            static std::map<std::string, std::function<void(std::string)> > parseactions;
             static std::map<std::string, std::string> sdescs;
+            static std::map<std::string, Race> races;
 
             static void feedMaps(void);
 
@@ -25,3 +32,4 @@ namespace rog {
 } /* rog */
 
 #endif /* __RAWSOURCER_H__ */
+
