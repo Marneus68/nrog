@@ -1,6 +1,8 @@
 #include "NewWorldState.h"
 
+#include <map>
 #include <string>
+#include <algorithm>
 
 #include "RawSourcer.h"
 #include "PathHelpers.h"
@@ -66,13 +68,19 @@ namespace rog {
 
         NcursesHelpers::writeCenteredString(mainWindow, "Creating a new world", 0, window_x/2);
         
-        
         mvwprintw(mainWindow, 2, 2, PathHelpers::getHomeDir().c_str());
         mvwprintw(mainWindow, 3, 2, PathHelpers::getLocalFilesDir().c_str());
         mvwprintw(mainWindow, 4, 2, RawSourcer::getStaticDescription("WorldSize").c_str());
         mvwprintw(mainWindow, 5, 2, RawSourcer::getStaticDescription("WorldHistoryLength").c_str());
         mvwprintw(mainWindow, 6, 2, RawSourcer::getStaticDescription("lkjfhsdlkjfh").c_str());
 
+        mvwprintw(mainWindow, 7, 2, std::to_string(RawSourcer::getRaces().size()).c_str());
+
+        int ccc = 8;
+        for(auto p : RawSourcer::getRaces()) {
+            mvwprintw(mainWindow, ccc, 2, p.second.toString().c_str());
+            ccc++;
+        }
 
         wrefresh(mainWindow);
         wrefresh(navWindow);

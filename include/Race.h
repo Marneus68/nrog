@@ -18,13 +18,15 @@ namespace rog {
         public:
             Race (void);
             Race (std::string & _name, std::string & _description, int a, int b, int c, int d, int e, int f);
-            Race (Race & _race);
+            Race (const Race & _race);
             virtual ~Race (void);
     
             Race &operator=(Race & _race);
 
             std::string & getName(void);
             std::string & getDescription(void);
+
+            std::string toString(void);
 
             int getSTR(void);
             int getINT(void);

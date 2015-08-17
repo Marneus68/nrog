@@ -23,9 +23,12 @@ namespace rog {
 
             static void feedMaps(void);
 
+            static std::map<std::string, std::string> & getStaticDescriptions(void);
             static std::string & getStaticDescription(char * key);
             static std::string & getStaticDescription(const char * key);
             static std::string & getStaticDescription(std::string & key);
+
+            static std::map<std::string, Race> & getRaces(void);
 
             static std::string expandString(std::string & str, std::map<std::string, std::string> & repmap);
     };

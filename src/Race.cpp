@@ -21,7 +21,7 @@ namespace rog {
         _cha(e),
         _per(f) {}
 
-    Race::Race (Race & _race) {
+    Race::Race (const Race & _race) {
         name = _race.name;
         description = _race.description;
         _str = _race._str;
@@ -33,6 +33,18 @@ namespace rog {
     }
 
     Race::~Race (void) {}
+
+    std::string Race::toString(void) {
+        std::string str; 
+        str = name + " " + 
+                std::to_string(_str) + ":" +
+                std::to_string(_int) + ":" +
+                std::to_string(_dex) + ":" +
+                std::to_string(_end) + ":" +
+                std::to_string(_cha) + ":" +
+                std::to_string(_per);
+        return str;
+    }
 
     Race & Race::operator=(Race & _race) {
         name = _race.name;

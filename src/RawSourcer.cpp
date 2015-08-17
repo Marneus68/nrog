@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <typeinfo>  
+#include <algorithm>  
 
 extern "C" {
 #include <fnmatch.h>
@@ -17,7 +18,7 @@ namespace rog {
     std::string RawSourcer::sdescnf = SDESC_NF;
 
     std::map<std::string, std::string> RawSourcer::sdescs;
-    //std::map<std::string, Race> RawSourcer::races;
+    std::map<std::string, Race> RawSourcer::races;
 
     std::map<std::string, std::function<void(std::string)> > RawSourcer::parseactions = {
         { "STATIC_DESCRIPTION", [&](std::string fpath) {
@@ -40,6 +41,7 @@ namespace rog {
         },
         { "RACE", [&](std::string fpath) {
                 Race race;
+                std::string name = "";
                 std::string line;
                 std::ifstream infile(fpath);
                 int il = 0;
@@ -53,25 +55,26 @@ namespace rog {
                     ss >> key;
                     ss >> std::ws;
                     std::getline(ss, value);
-                    if (key.compare("NAME")) {
+                    if (!key.compare("NAME")) {
                         race.setName(value);
-                    } else if (key.compare("DESCRIPTION")) {
+                        name = value;
+                    } else if (!key.compare("DESCRIPTION")) {
                         race.setDescription(value);
-                    } else if (key.compare("STR")) {
+                    } else if (!key.compare("STR")) {
                         race.setSTR(std::stoi(value));
-                    } else if (key.compare("INT")) {
+                    } else if (!key.compare("INT")) {
                         race.setINT(std::stoi(value));
-                    } else if (key.compare("DEX")) {
+                    } else if (!key.compare("DEX")) {
                         race.setDEX(std::stoi(value));
-                    } else if (key.compare("END")) {
+                    } else if (!key.compare("END")) {
                         race.setEND(std::stoi(value));
-                    } else if (key.compare("CHA")) {
+                    } else if (!key.compare("CHA")) {
                         race.setCHA(std::stoi(value));
-                    } else if (key.compare("PER")) {
+                    } else if (!key.compare("PER")) {
                         race.setPER(std::stoi(value));
                     }
                 }
-                
+                races[name] = race;
             }
         }
     };
@@ -99,6 +102,11 @@ namespace rog {
         ftw("raw", ftw_callback, 5);
     }
 
+    
+    std::map<std::string, std::string> & RawSourcer::getStaticDescriptions(void) {
+        return sdescs;
+    }
+
     std::string & RawSourcer::getStaticDescription(char * key) {
        std::string s(key);
        return getStaticDescription(s);
@@ -116,6 +124,10 @@ namespace rog {
         if (sdescs.count(key))
             return sdescs.at(key);
         return sdescnf;
+    }
+
+    std::map<std::string, Race> & RawSourcer::getRaces(void) {
+        return races;
     }
 
     std::string RawSourcer::expandString(std::string & str, std::map<std::string, std::string> & repmap) {
